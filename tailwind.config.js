@@ -10,6 +10,9 @@ module.exports = {
     colors: {
       "hovercol": '#eb98a9',
       "normalcol": '#e66378',
+      "darkercol": '#E03E59',
+      "defaultcol": '#63AC4D',
+      "linkcol": '#DD2C4A'
     },
   },
   plugins: [],
