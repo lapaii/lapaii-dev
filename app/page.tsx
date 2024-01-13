@@ -9,7 +9,7 @@ export default function homepage() {
       <div className="h-1/2 text-center justify-center items-center flex flex-col">
         <div className="m-5 h-full md:w-1/2 w-3/4 bg-hovercol outline outline-normalcol rounded-3xl justify-center items-center flex flex-col ">
           <div className="m-5">
-            <h1 className="md:text-3xl text-2xl text-normalcol">hi, i'm <a className="text-darkercol">lapaii</a></h1>
+            <h1 className="md:text-3xl text-2xl text-normalcol">hi, i&apos;m <a className="text-darkercol">lapaii</a></h1>
             <div className="m-5">
               <h1 className="md:text-2xl text-xl text-defaultcol">my links:</h1>
               <div className="md:text-2xl text-xl text-linkcol p-2.5">
