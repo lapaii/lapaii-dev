@@ -6,10 +6,10 @@ export default function blogHome() {
     <div className="h-screen">
       <div className="text-center justify-center items-center flex flex-col">
         <div className="m-5 p-5 md:w-1/2 bg-hovercol outline outline-normalcol rounded-3xl justify-center items-center flex flex-col ">
-          <h1 className="md:text-4xl text-3xl text-darkercol">lapaii's blog</h1>
+          <h1 className="md:text-4xl text-3xl text-darkercol">lapaii&apos;s blog</h1>
           <div className="p-5 md:text-2xl text-xl text-normalcol">
             <h1>
-              i hope i'll be able to update this often but don't expect too much
+              i hope i&apos;ll be able to update this often but don&apos;t expect too much
               ^-^
             </h1>
           </div>
