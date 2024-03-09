@@ -6,47 +6,48 @@ import { remark } from 'remark'
 
 const postsDirectory = path.join(process.cwd(), 'posts')
 
-export function getPostsData() {
-    const filenames = fs.readdirSync(postsDirectory);
+export async function getPostsData() {
 
-    const allPosts = filenames.map((filename) => {
-        const id = filename.replace(/\.md$/, '');
+	const filenames = fs.readdirSync(postsDirectory);
 
-        const fullpath = path.join(postsDirectory, filename);
-        const filecontents = fs.readFileSync(fullpath, 'utf8');
+	const allPosts = filenames.map((filename) => {
+		const id = filename.replace(/\.md$/, '');
 
-        const matterResult = matter(filecontents);
+		const fullpath = path.join(postsDirectory, filename);
+		const filecontents = fs.readFileSync(fullpath, 'utf8');
 
-        const blogPost: BlogPost = {
-            id,
-            title: matterResult.data.title,
-            date: matterResult.data.date,
-        }
+		const matterResult = matter(filecontents);
 
-        return blogPost
-    });
+		const blogPost: BlogPost = {
+			id,
+			title: matterResult.data.title,
+			date: matterResult.data.date,
+		}
 
-    return allPosts.sort((a, b) => a.date < b.date ? 1 : -1);
+		return blogPost
+	});
+
+	return allPosts.sort((a, b) => a.date < b.date ? 1 : -1);
 }
 
 export async function getPostData(id: string) {
-    const fullpath = path.join(postsDirectory, `${id}.md`);
-    const filecontents = fs.readFileSync(fullpath, 'utf8');
+	const fullpath = path.join(postsDirectory, `${id}.md`);
+	const filecontents = fs.readFileSync(fullpath, 'utf8');
 
-    const matterResult = matter(filecontents);
+	const matterResult = matter(filecontents);
 
-    const processedcontent = await remark()
-        .use(html)
-        .process(matterResult.content);
+	const processedcontent = await remark()
+		.use(html)
+		.process(matterResult.content);
 
-    const contentHtml = processedcontent.toString();
+	const contentHtml = processedcontent.toString();
 
-    const blogPostWithHTML: BlogPost & { contentHtml: string } = {
-        id,
-        title: matterResult.data.title,
-        date: matterResult.data.date,
-        contentHtml,
-    }
+	const blogPostWithHTML: BlogPost & { contentHtml: string } = {
+		id,
+		title: matterResult.data.title,
+		date: matterResult.data.date,
+		contentHtml,
+	}
 
-    return blogPostWithHTML
+	return blogPostWithHTML
 }
