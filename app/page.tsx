@@ -41,6 +41,13 @@ export default function homepage() {
 								>
 									twitch
 								</a>
+								•
+								<a
+									href="https://anilist.co/user/lapaii/"
+									className="hover:decoration-4 hover:text-normalcol hover:underline w-1/3 md:px-5 px-2.5"
+								>
+									anilist
+								</a>
 							</div>
 						</div>
 						<div className="m-5">
